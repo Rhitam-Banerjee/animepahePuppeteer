@@ -1,0 +1,9 @@
+{
+  "name": "animepahe_puppeteer",
+  "description": "Downloads anime from animepahe",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "puppeteer": "^21.2.1"
+  }
+}
