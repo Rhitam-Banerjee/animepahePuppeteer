@@ -23,14 +23,13 @@ async function downloadRunner({ title, link }, quality) {
         };
       });
     });
-    // console.log(pickAllDownload);
+    // returns only the download link with the preffered download quality
     const prefferedDownloadQualityLink = pickAllDownload.filter((ep) => {
       return ep.episodeDownloadQuality.includes(`${quality}`);
     });
-
-    // console.log(prefferedDownloadQualityLink);
+    const download = prefferedDownloadQualityLink.pop();
     await browser.close();
-    return prefferedDownloadQualityLink;
+    return download;
   } catch (err) {
     console.log("There was an error with downloadRunner file");
   }

@@ -53,7 +53,6 @@ const startApp = async () => {
       "Enter the number of episodes to download: \n"
     );
     returnEpisodeRequired(start, epCount);
-    // returnEpisodeRequired(20, 5);
     do {
       console.log(
         "Choose the Quality of download: \n1. 720p\n2. 1080p\n3. exit"

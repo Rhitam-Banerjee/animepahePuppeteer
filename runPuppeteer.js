@@ -1,9 +1,9 @@
 import puppeteer from "puppeteer";
 import * as fs from "fs";
 async function runPuppeteer(url) {
-  const browser = await puppeteer.launch({ headless: "new" });
-  const page = await browser.newPage();
   try {
+    const browser = await puppeteer.launch({ headless: "new" });
+    const page = await browser.newPage();
     //  creates function to introduce delay till the page completely loads
     const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -42,9 +42,9 @@ async function runPuppeteer(url) {
         console.log("complete");
       }
     );
+    await browser.close();
   } catch (err) {
     console.log("There was an error with runPuppeteer file.");
   }
-  await browser.close();
 }
 export default runPuppeteer;
