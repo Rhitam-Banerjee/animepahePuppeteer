@@ -55,9 +55,6 @@ const startApp = async () => {
       console.log("Please Enter a valid URL");
       exit(0);
     }
-    // runPuppeteer(
-    //   "https://animepahe.ru/anime/6add5285-53f8-660a-033e-8602c734f42a"
-    // );
     const start = await readLineAsync("Enter the starting episode: \n");
     const epCount = await readLineAsync(
       "Enter the number of episodes to download: \n"
