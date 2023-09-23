@@ -1,5 +1,6 @@
 import puppeteer from "puppeteer";
 import * as fs from "fs";
+import { exit } from "process";
 async function runPuppeteer(url) {
   try {
     const browser = await puppeteer.launch({ headless: "new" });
@@ -44,7 +45,8 @@ async function runPuppeteer(url) {
     );
     await browser.close();
   } catch (err) {
-    console.log("There was an error with runPuppeteer file.");
+    console.log("There was an error with runPuppeteer file.\n", err);
+    exit(0);
   }
 }
 export default runPuppeteer;

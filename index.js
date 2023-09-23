@@ -42,9 +42,19 @@ const returnEpisodeRequired = (start, epCount) => {
 };
 const startApp = async () => {
   const userRes = await readLineAsync("Enter the Url: \n");
-  console.log("Fetching Results...");
+  console.log("> Fetching Results...");
   try {
-    if (validateURL(userRes)) await runPuppeteer(userRes);
+    if (validateURL(userRes)) {
+      const res = await fetch(userRes);
+      if (res.status == 200) await runPuppeteer(userRes);
+      else {
+        console.log("The Url Seems to be not Up at the moment");
+        exit(0);
+      }
+    } else {
+      console.log("Please Enter a valid URL");
+      exit(0);
+    }
     // runPuppeteer(
     //   "https://animepahe.ru/anime/6add5285-53f8-660a-033e-8602c734f42a"
     // );
@@ -63,7 +73,7 @@ const startApp = async () => {
         break;
       } else console.log("Not a Valid Option");
     } while (downloadQualityOption != "3");
-
+    console.log("> Fetching Results...");
     for (let i = 0; i < episodesToDownload.length; i++) {
       downlinks.push(
         await downloadRunner(episodesToDownload[i], downloadQuality)

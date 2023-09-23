@@ -31,7 +31,8 @@ async function downloadRunner({ title, link }, quality) {
     await browser.close();
     return download;
   } catch (err) {
-    console.log("There was an error with downloadRunner file");
+    console.log("There was an error with downloadRunner file.\n", err);
+    exit(0);
   }
 }
 export default downloadRunner;
